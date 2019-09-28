@@ -1,0 +1,50 @@
+{
+    "name": "@wonkytech/tm-a4-book",
+    "version": "0.0.1",
+    "description": "Web component that represents a book of A4 pages.",
+    "author": "Tim McMaster",
+    "homepage": "https://tmcmaster.github.io/tm-a4-book",
+    "license": "MIT",
+    "repository": "https://github.com/tmcmaster/tm-a4-book",
+    "pika": true,
+    "sideEffects": true,
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-standard-pkg",
+                {
+                    "exclude": [
+                        "__tests__/**/*"
+                    ]
+                }
+            ],
+            [
+                "@pika/plugin-build-node"
+            ],
+            [
+                "@pika/plugin-build-web"
+            ]
+        ]
+    },
+    "scripts": {
+        "build": "pika build",
+        "version": "npm run build",
+        "publish": "pika publish",
+        "demo": "owc-dev-server --open demo",
+        "docs": "http-server docs",
+        "build:docs": "cd docs && npm run build"
+    },
+    "dependencies": {
+        "lit-element": "^2.0.1",
+        "lit-html": "^1.0.0"
+    },
+    "devDependencies": {
+        "@pika/pack": "^0.5.0",
+        "@pika/plugin-build-node": "^0.6.1",
+        "@pika/plugin-build-types": "^0.6.1",
+        "@pika/plugin-build-web": "^0.6.1",
+        "@pika/plugin-standard-pkg": "^0.6.1",
+        "@pika/types": "^0.6.1",
+        "owc-dev-server": "^0.3.0"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "demo-tm-a4-book",
+    "version": "0.0.1",
+    "description": "Web component that represents a book of A4 pages.",
+    "author": "Tim McMaster",
+    "homepage": "https://tmcmaster.github.io/tm-a4-book",
+    "license": "MIT",
+    "repository": "https://github.com/tmcmaster/tm-a4-book",
+    "scripts": {
+        "build": "npm install && npx @pika/web"
+    },
+    "dependencies": {
+        "lit-element": "^2.0.1",
+        "lit-html": "^1.0.0",
+        "@wonkytech/tm-a4-book": "^0.0.1"
+    },
+    "devDependencies": {}
+}
