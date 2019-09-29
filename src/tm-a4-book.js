@@ -1,7 +1,5 @@
 import {html, LitElement, css} from 'lit-element';
 
-import '@wonkytech/tm-page-slider';
-
 class TmA4Book extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
@@ -45,8 +43,9 @@ class TmA4Book extends LitElement {
                 width:100vw;
                 height:100vh;
                 font-size: 2vh;
+                border: solid green 2px;
             }
-            l2t-paper-slider {
+            tm-page-slider {
                 display: inline-block;
                 box-sizing: border-box;
                 border: solid grey 2px;
@@ -69,7 +68,7 @@ class TmA4Book extends LitElement {
 
             @media only screen and (orientation: portrait) {
                 /*noinspection CssUnusedSymbol*/
-                l2t-paper-slider {
+                tm-page-slider {
                     border: solid blue 2px;
                     width: 100vw;
                     height: calc(100vw * 1.4);
@@ -78,7 +77,7 @@ class TmA4Book extends LitElement {
 
             @media only screen and (orientation: portrait) and (min-aspect-ratio: 10/14) {
                 /*noinspection CssUnusedSymbol*/
-                l2t-paper-slider {
+                tm-page-slider {
                     border: solid red 2px;
                     height: 99vh;
                     width: calc(100vh / 1.4);
@@ -87,7 +86,7 @@ class TmA4Book extends LitElement {
 
             @media only screen and (orientation: landscape) {
                 /*noinspection CssUnusedSymbol*/
-                l2t-paper-slider {
+                tm-page-slider {
                     border: solid green 2px;
                     height: 99vh;
                     width: calc(100vh / 1.4);
@@ -98,19 +97,13 @@ class TmA4Book extends LitElement {
     // noinspection JSUnusedGlobalSymbols
     render() {
         return html`
-      <style>
-        :host {
-          display: inline-block;
-        }
-        
-      </style>
-      <tm-page-slider id="aaa" hide-nav>
-        <slot name="page"></slot>
-<!--        <paper-slide><h3>Page One</h3></paper-slide>-->
-<!--        <paper-slide><h3>Page Two</h3></paper-slide>-->
-<!--        <paper-slide><h3>Page Three</h3></paper-slide>-->
-<!--        <paper-slide><h3>Page Four</h3></paper-slide>-->
-      </tm-page-slider>
+            <tm-page-slider id="aaa" hide-nav>
+                <slot name="page"></slot>
+<!--                <paper-slide><h3>Page One</h3></paper-slide>-->
+<!--                <paper-slide><h3>Page Two</h3></paper-slide>-->
+<!--                <paper-slide><h3>Page Three</h3></paper-slide>-->
+<!--                <paper-slide><h3>Page Four</h3></paper-slide>-->
+            </tm-page-slider>
     `;
     }
 

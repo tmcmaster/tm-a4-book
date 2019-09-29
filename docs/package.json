@@ -12,7 +12,8 @@
     "dependencies": {
         "lit-element": "^2.0.1",
         "lit-html": "^1.0.0",
-        "@wonkytech/tm-a4-book": "^0.0.3"
+        "@wonkytech/tm-a4-book": "^0.0.4",
+        "@wonkytech/tm-page-slider": "github:tmcmaster/tm-page-slider"
     },
     "devDependencies": {}
 }
