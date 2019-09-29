@@ -35,9 +35,9 @@
         "build:docs": "cd docs && npm run build"
     },
     "dependencies": {
+        "@wonkytech/tm-page-slider": "github:tmcmaster/tm-page-slider",
         "lit-element": "^2.0.1",
-        "lit-html": "^1.0.0",
-        "@wonkyteck/tm-page-slider": "github:tmcmaster/tm-page-slider"
+        "lit-html": "^1.0.0"
     },
     "devDependencies": {
         "@pika/pack": "^0.5.0",

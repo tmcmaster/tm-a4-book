@@ -1,6 +1,5 @@
 import {html, render} from "lit-html";
 import '../src/index.js';
-//import '@wonkytech/tm-page-slider';
 
 render(html`
     <style>

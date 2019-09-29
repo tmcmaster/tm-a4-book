@@ -1,5 +1,7 @@
 import {html, LitElement, css} from 'lit-element';
 
+import '@wonkytech/tm-page-slider';
+
 class TmA4Book extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
