@@ -36,7 +36,8 @@
     },
     "dependencies": {
         "lit-element": "^2.0.1",
-        "lit-html": "^1.0.0"
+        "lit-html": "^1.0.0",
+        "@wonkyteck/tm-page-slider": "github:tmcmaster/tm-page-slider"
     },
     "devDependencies": {
         "@pika/pack": "^0.5.0",
