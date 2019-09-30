@@ -148,6 +148,19 @@ Polymer$0({
         height: var(--page-slide-height, 100%);
         overflow-x: hidden;
         display: inline-block;
+        box-sizing: border-box;
+        //border:solid green 3px;
+      }
+      
+      #container {
+        height:100%;
+        box-sizing: border-box;
+        //border: solid blue 2px;
+      }
+      
+      div.slider__slides {
+        box-sizing: border-box;
+        //border: solid orange 2px;
       }
     </style>
     <div id="container" class="slider" data-pos\$="[[position]]">
@@ -317,10 +330,10 @@ Polymer$0({
   // Key Bindings //
 
   keyBindings: {
-    'right': '_keyRight',
-    'left': '_keyLeft',
-    'space': '_spaceCatcher',
-    'enter': '_spaceCatcher',
+    // 'right': '_keyRight',
+    // 'left': '_keyLeft',
+    // 'space': '_spaceCatcher',
+    // 'enter': '_spaceCatcher',
   },
 
   // Private //

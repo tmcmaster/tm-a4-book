@@ -39,7 +39,7 @@ class TmA4Book extends LitElement {
             tm-page-slider {
                 display: inline-block;
                 box-sizing: border-box;
-                //border: solid lightgray 1px;
+                //border: solid red 1px;
                 background: white;
             }
 
