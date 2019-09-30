@@ -15723,6 +15723,19 @@ Polymer({
         height: var(--page-slide-height, 100%);
         overflow-x: hidden;
         display: inline-block;
+        box-sizing: border-box;
+        //border:solid green 3px;
+      }
+      
+      #container {
+        height:100%;
+        box-sizing: border-box;
+        //border: solid blue 2px;
+      }
+      
+      div.slider__slides {
+        box-sizing: border-box;
+        //border: solid orange 2px;
       }
     </style>
     <div id="container" class="slider" data-pos\$="[[position]]">
@@ -15887,11 +15900,10 @@ Polymer({
     }
   },
   // Key Bindings //
-  keyBindings: {
-    'right': '_keyRight',
-    'left': '_keyLeft',
-    'space': '_spaceCatcher',
-    'enter': '_spaceCatcher'
+  keyBindings: {// 'right': '_keyRight',
+    // 'left': '_keyLeft',
+    // 'space': '_spaceCatcher',
+    // 'enter': '_spaceCatcher',
   },
   // Private //
 
@@ -16274,7 +16286,7 @@ class TmA4Book extends LitElement {
             tm-page-slider {
                 display: inline-block;
                 box-sizing: border-box;
-                //border: solid lightgray 1px;
+                //border: solid red 1px;
                 background: white;
             }
 
