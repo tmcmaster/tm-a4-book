@@ -16335,13 +16335,21 @@ class TmA4Book extends LitElement {
   }
 
   _nextPage() {
-    //console.log('Next Page');
-    this.shadowRoot.getElementById('aaa').moveNext();
+    const slider = this.shadowRoot.getElementById('aaa');
+
+    if (slider.position < slider.totalSlides - 1) {
+      //console.log('Position/Total: ', slider.position, slider.totalSlides);
+      this.shadowRoot.getElementById('aaa').moveNext();
+    }
   }
 
   _prevPage() {
-    //console.log('Previous Page');
-    this.shadowRoot.getElementById('aaa').movePrev();
+    const slider = this.shadowRoot.getElementById('aaa');
+
+    if (slider.position > 0) {
+      //console.log('Position/Total: ', slider.position, slider.totalSlides);
+      this.shadowRoot.getElementById('aaa').movePrev();
+    }
   }
 
 }
