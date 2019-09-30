@@ -1,0 +1,21 @@
+{
+  "name": "A4 Book",
+  "short_name": "A4 Book",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#2A3443",
+  "description": "A4 Book Web Component",
+  "theme_color": "#2A3443",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
