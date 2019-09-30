@@ -8,11 +8,6 @@ render(html`
           margin: 0;
         } 
         
-        /*paper-slide {*/
-        /*    background: white;*/
-        /*    height:100%;*/
-        /*    width: 100%;*/
-        /*}*/
         h3 {
             //padding-top: 20vh;
             text-align: center;
@@ -47,9 +42,10 @@ render(html`
         
     </style>
     <tm-a4-book>
-        <paper-slide slot="page"><h3>Page One</h3></paper-slide>
-        <paper-slide slot="page"><h3>Page Two</h3></paper-slide>
-        <paper-slide slot="page"><h3>Page Three</h3></paper-slide>
-        <paper-slide slot="page"><h3>Page Four</h3></paper-slide>
+        <div slot="page"><h3>Cover Page</h3></div>
+        <div slot="page"><h3>Page One</h3></div>
+        <div slot="page"><h3>Page Two</h3></div>
+        <div slot="page"><h3>Page Three</h3></div>
+        <div slot="page"><h3>Page Four</h3></div>
     </tm-a4-book>
 `, document.querySelector('body'));

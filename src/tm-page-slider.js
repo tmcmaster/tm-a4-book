@@ -8,28 +8,28 @@ import { addListener } from '@polymer/polymer/lib/utils/gestures.js';
 /**
 * Polymer element for displaying slides in a carousel.
 * ### Examples
-* Each slide must be within a paper-slide tag, but other than that you have complete control.
+* Each slide must be within a page-slide tag, but other than that you have complete control.
 *
 *   <tm-page-slider>
-*     <paper-slide>#1</paper-slide>
-*     <paper-slide>#2</paper-slide>
-*     <paper-slide>#3</paper-slide>
-*     <paper-slide>#4</paper-slide>
+*     <page-slide>#1</page-slide>
+*     <page-slide>#2</page-slide>
+*     <page-slide>#3</page-slide>
+*     <page-slide>#4</page-slide>
 *   </tm-page-slider>
 *
 * There is also auto progression and slide duration for how long it should remain on one slide
 *
 *   <tm-page-slider auto-progress slide-duration="2" total-slides="3">
-*     <paper-slide>#1</paper-slide>
-*     <paper-slide>#2</paper-slide>
-*     <paper-slide>#3</paper-slide>
+*     <page-slide>#1</page-slide>
+*     <page-slide>#2</page-slide>
+*     <page-slide>#3</page-slide>
 *   </tm-page-slider>
 *
 * You can set a different default start position, the first start postion is 0 (as opposed to 1)
 *
 *   <tm-page-slider position="1" total-slides="2">
-*     <paper-slide>#1</paper-slide>
-*     <paper-slide>#2</paper-slide>
+*     <page-slide>#1</page-slide>
+*     <page-slide>#2</page-slide>
 *   </tm-page-slider>
 *
 * ### Styling
@@ -37,15 +37,15 @@ import { addListener } from '@polymer/polymer/lib/utils/gestures.js';
 *
 * Custom property | Description | Default
 * ----------------|-------------|----------
-* `--paper-slide-dot` | Color of unselected Nav Dot. | `rgba(255, 255, 255, .5)
-* `--paper-slide-dot-selected` | Color of selected Nav Dot. | `#FFF`
-* `--paper-slide-width` | Width of slide container. | `100%`
-* `--paper-slide-height` | Height of slide container. | `600px`
-* `--paper-slider-styles` | (Mixin) Customs styles for slider container | NULL
-* `--paper-slider-dot-container-styles` | (Mixin) Custom styles for dot container | NULL
-* `--paper-slide-dot-styles` | (Mixin) Custon styles for dots | NULL
-* `--paper-slide-background` | Default background color for slides | `rgba(0,0,0,0)`
-* `--paper-slide-font-size` | Default font size for slide | `medium`
+* `--page-slide-dot` | Color of unselected Nav Dot. | `rgba(255, 255, 255, .5)
+* `--page-slide-dot-selected` | Color of selected Nav Dot. | `#FFF`
+* `--page-slide-width` | Width of slide container. | `100%`
+* `--page-slide-height` | Height of slide container. | `600px`
+* `--page-slider-styles` | (Mixin) Customs styles for slider container | NULL
+* `--page-slider-dot-container-styles` | (Mixin) Custom styles for dot container | NULL
+* `--page-slide-dot-styles` | (Mixin) Custon styles for dots | NULL
+* `--page-slide-background` | Default background color for slides | `rgba(0,0,0,0)`
+* `--page-slide-font-size` | Default font size for slide | `medium`
 *
 * @polymer
 * @element tm-page-slider
@@ -60,7 +60,7 @@ Polymer$0({
         display: box;
         display: -webkit-box;
         white-space: nowrap;
-        @apply --paper-slider-styles;
+        @apply --page-slider-styles;
       }
 
       .slider__slides {
@@ -68,7 +68,7 @@ Polymer$0({
         font-size: 0;
         width: 100%;
         height: 100%;
-        background: var(--paper-slide-background, rgba(0, 0, 0, 0));
+        background: var(--page-slide-background, rgba(0, 0, 0, 0));
         will-change: transform;
       }
 
@@ -89,7 +89,7 @@ Polymer$0({
         left: 50%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-        @apply --paper-slider-dot-container-styles;
+        @apply --page-slider-dot-container-styles;
       }
 
       *[hidden] {
@@ -102,22 +102,22 @@ Polymer$0({
         margin: 8px;
         width: 16px;
         height: 16px;
-        background: var(--paper-slide-dot, rgba(255, 255, 255, .5));
+        background: var(--page-slide-dot, rgba(255, 255, 255, .5));
         border-radius: 8px;
         cursor: pointer;
-        @apply --paper-slide-dot-styles;
+        @apply --page-slide-dot-styles;
       }
 
       .slider__dot:focus {
         outline: none;
-        box-shadow: 0 0 7px 1px var(--paper-slide-dot, rgba(255, 255, 255, .5));
+        box-shadow: 0 0 7px 1px var(--page-slide-dot, rgba(255, 255, 255, .5));
       }
 
       .slider__indicator {
         -webkit-transition: opacity .5s .1s cubic-bezier(.51, .92, .24, 1.15);
         transition: opacity .5s .1s cubic-bezier(.51, .92, .24, 1.15);
         position: absolute;
-        background: var(--paper-slide-dot-selected, #FFF);
+        background: var(--page-slide-dot-selected, #FFF);
         border-color: rgba(0, 0, 0, 0);
         background-clip: padding-box;
         opacity: 0;
@@ -135,17 +135,17 @@ Polymer$0({
       }
 
       .slider {
-        width: var(--paper-slide-width, 100%);
-        height: var(--paper-slide-height, 600px);
+        width: var(--page-slide-width, 100%);
+        height: var(--page-slide-height, 600px);
       }
 
       .slider__slides ::slotted(*) {
-        font-size: var(--paper-slide-font-size, medium);
+        font-size: var(--page-slide-font-size, medium);
       }
 
-      .slider__slides ::slotted(paper-slide) {
-        width: var(--paper-slide-width, 100%);
-        height: var(--paper-slide-height, 600px);
+      .slider__slides ::slotted(*) {
+        width: var(--page-slide-width, 100%);
+        height: var(--page-slide-height, 100%);
         overflow-x: hidden;
         display: inline-block;
       }
@@ -383,7 +383,7 @@ Polymer$0({
   *
   */
   _countSlides: function () {
-    //this.totalSlides = this.querySelectorAll("paper-slide").length;
+    //this.totalSlides = this.querySelectorAll("page-slide").length;
     let slot = this.$.aaa;
     console.log('Slot', slot.assignedElements({flatten: true}));
     this.totalSlides = this.$.container.querySelectorAll('slot').length;
@@ -502,16 +502,16 @@ Polymer$0({
   * inert on hidden slides
   */
   _setInert: function () {
-    var deep = this.$.container,
-      sliSel = deep.querySelectorAll('paper-slide');
-    for (var i = 0; i < sliSel.length; i++) {
-      if (i != this.position) {
-        sliSel[i].setAttribute("inert", "")
-      }
-    }
-    if (sliSel[this.position]) {
-      sliSel[this.position].removeAttribute("inert");
-    }
+        // var deep = this.$.container,
+        //   sliSel = deep.querySelectorAll('page-slide');
+        // for (var i = 0; i < sliSel.length; i++) {
+        //   if (i != this.position) {
+        //     sliSel[i].setAttribute("inert", "")
+        //   }
+        // }
+        // if (sliSel[this.position]) {
+        //   sliSel[this.position].removeAttribute("inert");
+        // }
   },
 
   /**

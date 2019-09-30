@@ -41,7 +41,6 @@ class TmA4Book extends LitElement {
                 box-sizing: border-box;
                 //border: solid lightgray 1px;
                 background: white;
-                --paper-slide-height: 100%;
             }
 
             @media only screen and (orientation: portrait) and (max-aspect-ratio: 10/14) {
