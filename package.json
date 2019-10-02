@@ -35,7 +35,7 @@
         "build:docs": "cd docs && npm run build"
     },
     "dependencies": {
-        "@wonkytech/tm-page-slider": "github:tmcmaster/tm-page-slider",
+        "@polymer/polymer": "^3.3.0",
         "lit-element": "^2.0.1",
         "lit-html": "^1.0.0"
     },
