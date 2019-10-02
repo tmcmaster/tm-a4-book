@@ -21,12 +21,14 @@ class TmPageSlider extends LitElement {
   }
 
 
+  // noinspection CssUnresolvedCustomProperty
   static get styles() {
+
     //language=CSS
     return [css`
-      /*noinspection CssUnusedSymbol*/
+      /*noinspection ALL*/
       .slider {
-        height:100%;
+        height: 100%;
         box-sizing: border-box;
         //border: solid green 2px;
         position: relative;
@@ -36,8 +38,8 @@ class TmPageSlider extends LitElement {
         white-space: nowrap;
         @apply --page-slider-styles;
       }
-      
-      /*noinspection CssUnusedSymbol*/
+
+      /*noinspection ALL*/
       .slider__slides {
         position: relative;
         box-sizing: border-box;
@@ -48,14 +50,15 @@ class TmPageSlider extends LitElement {
         will-change: transform;
       }
 
-      /*noinspection CssUnusedSymbol*/
+      /* noinspection CssUnusedSymbol */
       .slider__slides.mouseup {
         -webkit-transition: -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: transform .3s cubic-bezier(.51, .92, .24, 1), -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
       }
-      
+
+      /*noinspection CssUnresolvedCustomProperty*/
       .slider__slides ::slotted(*) {
         font-size: var(--page-slide-font-size, medium);
         width: var(--page-slide-width, 100%);
@@ -63,7 +66,7 @@ class TmPageSlider extends LitElement {
         overflow-x: hidden;
         display: inline-block;
         box-sizing: border-box;
-        //border:solid green 3px;
+        //border: solid green 3px;
       }
     `];
   }
@@ -71,10 +74,10 @@ class TmPageSlider extends LitElement {
   render() {
     return html`
        <div id="container" class="slider" data-pos\$="[[position]]">
-        <div id="slides" class="slider__slides mouseup">
-          <slot id="slideSlot"></slot>
+          <div id="slides" class="slider__slides mouseup">
+            <slot id="slideSlot"></slot>
+          </div>
         </div>
-      </div>
     `;
   }
 
@@ -114,7 +117,7 @@ class TmPageSlider extends LitElement {
         let senNumber = this.sensitivity == "high" ? 0.25 : this.sensitivity == "low" ? -0.25 : 0;
         let senDirection = this.perMov > (this.position * 100) ? 1 : -1;
         let newPos = Math.round((this.perMov / 100) + (senNumber * senDirection));
-        container.querySelector(".slider__slides").classList.add('mouseup');
+        slides.classList.add('mouseup');
         this.position == newPos ? slides.style.transform = "translateX(-" + this.position * 100 + "%)" : false;
         this.movePos(newPos);
         break;
