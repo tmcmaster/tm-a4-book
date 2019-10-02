@@ -1,34 +1,17 @@
-import {html, LitElement, css} from 'lit-element';
+import '@polymer/polymer/polymer-legacy.js';
 
+import { Polymer as Polymer$0 } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import { addListener } from '@polymer/polymer/lib/utils/gestures.js';
 
-class TmPageSlider extends LitElement {
-
-  // noinspection JSUnusedGlobalSymbols
-  static get properties() {
-    return {
-      position: {type: Number, value: 0, notify: true, reflectToAttribute: true, observer: '_animateCSS'},
-      sensitivity: {type: String, value: 'default', notify: true},
-      totalSlides: {type: Number, notify: true, reflectToAttribute: true, observer: '_animateCSS'},
-    }
-  }
-
-  constructor() {
-    super();
-    this.position = 0;
-    this.totalSlides = 5;
-    setTimeout(() => this._animateCSS(), 1000);
-  }
-
-
-  static get styles() {
-    //language=CSS
-    return [css`
-      /*noinspection CssUnusedSymbol*/
+// noinspection CssInvalidPropertyValue,CssUnresolvedCustomProperty,CssInvalidFunction
+Polymer$0({
+  _template: html`
+    <style>    
       .slider {
         height:100%;
         box-sizing: border-box;
-        //border: solid green 2px;
+        border: solid green 2px;
         position: relative;
         overflow: hidden;
         display: box;
@@ -36,8 +19,7 @@ class TmPageSlider extends LitElement {
         white-space: nowrap;
         @apply --page-slider-styles;
       }
-      
-      /*noinspection CssUnusedSymbol*/
+
       .slider__slides {
         position: relative;
         box-sizing: border-box;
@@ -48,14 +30,14 @@ class TmPageSlider extends LitElement {
         will-change: transform;
       }
 
-      /*noinspection CssUnusedSymbol*/
       .slider__slides.mouseup {
         -webkit-transition: -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: transform .3s cubic-bezier(.51, .92, .24, 1);
         transition: transform .3s cubic-bezier(.51, .92, .24, 1), -webkit-transform .3s cubic-bezier(.51, .92, .24, 1);
       }
-      
+
+
       .slider__slides ::slotted(*) {
         font-size: var(--page-slide-font-size, medium);
         width: var(--page-slide-width, 100%);
@@ -65,35 +47,43 @@ class TmPageSlider extends LitElement {
         box-sizing: border-box;
         //border:solid green 3px;
       }
-    `];
-  }
 
-  render() {
-    return html`
-       <div id="container" class="slider" data-pos\$="[[position]]">
-        <div id="slides" class="slider__slides mouseup">
-          <slot id="slideSlot"></slot>
-        </div>
+      .slider__dots {
+        display: none;
+      }
+
+    </style>
+    <div id="container" class="slider" data-pos\$="[[position]]">
+      <div id="slides" class="slider__slides mouseup">
+        <slot id="slideSlot"></slot>
       </div>
-    `;
-  }
+    </div>
+  `,
+
+  is: 'tm-page-slider-old',
+
+  properties: {
+    position: {type: Number, value: 0, notify: true, reflectToAttribute: true, observer: '_animateCSS'},
+    sensitivity: {type: String, value: 'default', notify: true},
+    totalSlides: {type: Number, notify: true, reflectToAttribute: true, observer: '_animateCSS'},
+  },
 
   /** Method for styling and animating dots */
-  _animateCSS() {
+  _animateCSS: function () {
     console.debug('Animate CSS');
-    let container = this.shadowRoot.getElementById('container');
+    let {container} = this.$;
     let slides = container.querySelector(".slider__slides");
     slides.style.transform = "translateX(-" + 100 * this.position + "%)";
     // console.debug('Animate CSS: slider__slides: ', slides);
     // console.debug('Animate CSS: slides.style.transform: ', slides.style.transform);
     // console.debug('Animate CSS: indSel.style.left: ', indSel.style.left);
     // console.debug('Animate CSS: indSel.style.right: ', indSel.style.right);
-  }
+  },
 
   /** Swipe event handler */
-  _swipeHandler(e) {
+  _swipeHandler: function (e) {
     console.debug('Swipe Update');
-    let container = this.shadowRoot.getElementById('container');
+    let {container} = this.$;
     let state = e.detail.state;
     let xPos = e.detail.x;
     let slides = container.querySelector(".slider__slides");
@@ -119,44 +109,39 @@ class TmPageSlider extends LitElement {
         this.movePos(newPos);
         break;
     }
-  }
+  },
 
   /** Move to the next slide */
-  moveNext() {
+  moveNext: function () {
     console.debug('Move Next');
-    let nextPos = this.position < (this.totalSlides - 1) ? (this.position + 1) : 0;
+    let {container} = this.$;
+    let currentPos = parseInt(container.getAttribute('data-pos'));
+    let nextPos = currentPos < (this.totalSlides - 1) ? (currentPos + 1) : 0;
     this.movePos(nextPos);
-  }
+    console.debug(`Move Next: position: ${currentPos} -> ${nextPos}`);
+  },
 
   /** move to previous slide */
-  movePrev() {
+  movePrev: function () {
     console.debug('Move Previous');
-    let nextPos = this.position > 0 ? (this.position - 1) : (this.totalSlides - 1);
+    let {container} = this.$;
+    let currentPos = parseInt(container.getAttribute('data-pos'));
+    let nextPos = currentPos > 0 ? (currentPos - 1) : (this.totalSlides - 1);
     this.movePos(nextPos);
-  }
+    console.debug(`Move Previous: position: ${currentPos} -> ${nextPos}`);
+  },
 
-  movePos(newPos) {
-    console.debug(`Move Position: ${this.position} -> ${newPos}`);
+  movePos: function(newPos) {
     this.position = newPos;
-    let container = this.shadowRoot.getElementById('container');
-    container.setAttribute('data-pos', newPos);
-    this._animateCSS();
-  }
+  },
 
-  firstUpdated() {
+  /**  Starting the scripts */
+  attached: function () {
     console.debug('Component Attached');
-    //let {container, slideSlot} = this.$;
-    let container = this.shadowRoot.getElementById('container');
-    let slideSlot = this.shadowRoot.getElementById('slideSlot');
-
-    console.debug('Component Attached: container', container);
-    console.debug('Component Attached: slideSlot', slideSlot);
-
+    let {container, slideSlot} = this.$;
     this.totalSlides = slideSlot.assignedElements({flatten: true}).length;
     this._animateCSS();
     console.info('Component Attached: Adding swipe listener')
     addListener(container, 'track', e => this._swipeHandler(e));
   }
-}
-
-window.customElements.define('tm-page-slider', TmPageSlider);
+});
