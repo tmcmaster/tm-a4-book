@@ -1,7 +1,5 @@
 import {html, LitElement, css} from 'lit-element';
 
-//import '@wonkytech/tm-page-slider';
-
 class TmA4Book extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
@@ -19,6 +17,8 @@ class TmA4Book extends LitElement {
                 case 38: this._prevPage(); break;
                 case 39: this._nextPage(); break;
                 case 40: this._nextPage(); break;
+                case 13: this._nextPage(); break;
+                case 32: this._nextPage(); break;
             }
         };
     }
@@ -88,25 +88,25 @@ class TmA4Book extends LitElement {
     // noinspection JSUnusedGlobalSymbols
     render() {
         return html`
-            <tm-page-slider id="aaa" hide-nav>
+            <tm-page-slider id="slide" hide-nav>
                 <slot name="page"></slot>
             </tm-page-slider>
     `;
     }
 
     _nextPage() {
-        const slider = this.shadowRoot.getElementById('aaa');
+        const slider = this.shadowRoot.getElementById('slide');
         if (slider.position < (slider.totalSlides -1)) {
             //console.log('Position/Total: ', slider.position, slider.totalSlides);
-            this.shadowRoot.getElementById('aaa').moveNext();
+            this.shadowRoot.getElementById('slide').moveNext();
         }
     }
 
     _prevPage() {
-        const slider = this.shadowRoot.getElementById('aaa');
+        const slider = this.shadowRoot.getElementById('slide');
         if (slider.position > 0) {
             //console.log('Position/Total: ', slider.position, slider.totalSlides);
-            this.shadowRoot.getElementById('aaa').movePrev();
+            this.shadowRoot.getElementById('slide').movePrev();
         }
     }
 }
