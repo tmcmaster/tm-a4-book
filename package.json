@@ -1,6 +1,6 @@
 {
     "name": "@wonkytech/tm-a4-book",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Web component that represents a book of A4 pages.",
     "author": "Tim McMaster",
     "homepage": "https://tmcmaster.github.io/tm-a4-book",
