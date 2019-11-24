@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "pika:build": "npm install && npx @pika/web --dest ../docs/web_modules"
+    },
+    "dependencies": {
+        "@wonkytech/tm-a4-book": "latest"
+    }
+}

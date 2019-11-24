@@ -1,6 +1,6 @@
 import {html, LitElement, css} from 'lit-element';
 
-import { addListener } from '@polymer/polymer/lib/utils/gestures.js';
+// import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 
 class TmA4Book extends LitElement {
 
@@ -73,24 +73,34 @@ class TmA4Book extends LitElement {
                     width: 100vw;
                     height: calc(100vw * 1.4);
                 }
+
+                /*.slider__slides ::slotted(*) {*/
+                /*    padding:1vw;*/
+                /*}*/
             }
 
             @media only screen and (orientation: portrait) and (min-aspect-ratio: 10/14) {
                 /*noinspection CssUnusedSymbol*/
                 .slider {
                     //border: solid red 2px;
-                    height: 99vh;
+                    height: 100vh;
                     width: calc(100vh / 1.4);
                 }
+                /*.slider__slides ::slotted(*) {*/
+                /*    padding:calc(1vh/1.4);*/
+                /*}*/
             }
 
             @media only screen and (orientation: landscape) {
                 /*noinspection CssUnusedSymbol*/
                 .slider {
                     //border: solid green 2px;
-                    height: 99vh;
+                    height: 100vh;
                     width: calc(100vh / 1.4);
                 }
+                /*.slider__slides ::slotted(*) {*/
+                /*    padding:calc(1vh/1.4);*/
+                /*}*/
             }
 
             /*noinspection ALL*/
@@ -133,6 +143,7 @@ class TmA4Book extends LitElement {
                 overflow-x: hidden;
                 display: inline-block;
                 box-sizing: border-box;
+                overflow: hidden;
             //border: solid green 3px;
             }
         `];
@@ -141,6 +152,7 @@ class TmA4Book extends LitElement {
     render() {
         return html`
             <div id="container" class="slider" data-pos\$="[[position]]">
+                
               <div id="slides" class="slider__slides mouseup">
                 <slot id="slideSlot" name="page"></slot>
               </div>

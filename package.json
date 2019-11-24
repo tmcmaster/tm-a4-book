@@ -11,12 +11,7 @@
     "@pika/pack": {
         "pipeline": [
             [
-                "@pika/plugin-standard-pkg",
-                {
-                    "exclude": [
-                        "__tests__/**/*"
-                    ]
-                }
+                "@pika/plugin-standard-pkg"
             ],
             [
                 "@pika/plugin-build-node"
@@ -27,12 +22,15 @@
         ]
     },
     "scripts": {
-        "build": "pika build",
+        "build": "npm install; pika build",
         "version": "npm run build",
-        "publish": "pika publish",
-        "demo": "owc-dev-server --open demo",
-        "docs": "http-server docs",
-        "build:docs": "cd docs && npm run build"
+        "publish": "npm run build && pika publish",
+        "demo:serve": "owc-dev-server . --open demo",
+        "docs:build": "npm run docs:clear && npm run docs:install && npm run docs:pika",
+        "docs:serve": "http-server docs -o",
+        "docs:clear": "rm -rf docs/web_modules",
+        "docs:install": "npm install && npx @pika/web --dest docs/web_modules",
+        "docs:pika": "(cd pika; npm run pika:build)"
     },
     "dependencies": {
         "@polymer/polymer": "^3.3.0",
@@ -46,6 +44,7 @@
         "@pika/plugin-build-web": "^0.6.1",
         "@pika/plugin-standard-pkg": "^0.6.1",
         "@pika/types": "^0.6.1",
+        "@pika/web": "^0.6.1",
         "owc-dev-server": "^0.3.0"
     }
 }
