@@ -1,6 +1,12 @@
 import {html, LitElement, css} from 'lit-element';
 
-// import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+import './tm-a4-page';
+
+import {addListener} from "@polymer/polymer/lib/utils/gestures";
+
+'@polymer/polymer';
+
+//import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 
 class TmA4Book extends LitElement {
 

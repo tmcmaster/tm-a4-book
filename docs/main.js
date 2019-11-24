@@ -44,9 +44,9 @@ render(html`
     <tm-a4-book>
         <tm-a4-page slot="page"><h3>Cover Page</h3></tm-a4-page>
         <tm-a4-page slot="page"><h3>Page One</h3></tm-a4-page>
-         <tm-a4-page slot="page"><h3>Page Two</h3></tm-a4-page>
-         <tm-a4-page slot="page"><h3>Page Three</h3></tm-a4-page>
-         <tm-a4-page slot="page"><h3>Page Four</h3></tm-a4-page>
-         <tm-a4-page slot="page"><h3>Page Five</h3></tm-a4-page>
+        <tm-a4-page slot="page"><h3>Page Two</h3></tm-a4-page>
+        <tm-a4-page slot="page"><h3>Page Three</h3></tm-a4-page>
+        <tm-a4-page slot="page"><h3>Page Four</h3></tm-a4-page>
+        <tm-a4-page slot="page"><h3>Page Five</h3></tm-a4-page>
     </tm-a4-book>
 `, document.querySelector('body'));
